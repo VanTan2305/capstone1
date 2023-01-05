@@ -18,6 +18,8 @@ import AudioPlayer from 'react-h5-audio-player';
 import { ReflexContainer, ReflexElement, ReflexSplitter } from 'react-reflex';
 import { AiOutlineAlignCenter } from 'react-icons/ai';
 import { useAuthContext } from '../context/auth_context';
+import { fakePracticeData } from '../data/fakeData';
+
 
 import 'react-reflex/styles.css';
 import 'react-h5-audio-player/lib/styles.css';
@@ -67,9 +69,12 @@ const PracticeDetailPage = () => {
   const getData = async () => {
     dispatch({ type: 'GET_PRODUCTS_BEGIN' });
     try {
-      const response = await axios.get(`${details_test_url}${params.id}`);
-      const data = response.data;
-      dispatch({ type: 'GET_PRODUCTS_SUCCESS', payload: data.testDetail });
+      // const response = await axios.get(`${details_test_url}${params.id}`);
+      // const data = response.data;
+      // console.log(data);
+      const fakeData = fakePracticeData.tests.filter((item)=> item._id === params.id)
+      console.log(fakeData);
+      dispatch({ type: 'GET_PRODUCTS_SUCCESS', payload: fakeData[0] });
     } catch (error) {
       dispatch({ type: 'GET_PRODUCTS_ERROR' });
     }
