@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { Button } from 'antd';
 
 const Filter = ({ filter, changeFilter, searchTestHandler, clearFilterHandler, type }) => {
-  let a;
-  if (type === 'reading') {
-    a = ['All', 'Multiple Choice', 'Fill Blank', 'TFN'];
-  } else {
-    a = ['All', 'Multiple Choice', 'Fill Blank'];
-  }
+  let a = ['All', 'Word', 'Excel', 'Power Point'];
+  // if (type === 'reading') {
+  //   a = ['All', 'Multiple Choice', 'Fill Blank', 'TFN'];
+  // } else {
+  //   a = ['All', 'Multiple Choice', 'Fill Blank'];
+  // }
 
   return (
     <Wrapper className="course form-container">
@@ -69,7 +69,7 @@ const Filter = ({ filter, changeFilter, searchTestHandler, clearFilterHandler, t
             <option value="-title">Name Z-A</option>
           </select>
 
-          <h3>Test type:</h3>
+          {/* <h3>Test type:</h3>
           <select
             className="select"
             name="testType"
@@ -77,7 +77,7 @@ const Filter = ({ filter, changeFilter, searchTestHandler, clearFilterHandler, t
             onChange={changeFilter}>
             <option value="reading">Reading</option>
             <option value="listening">Listening</option>
-          </select>
+          </select> */}
         </div>
 
         <Button type="primary" size="large" className="filter-btn" onClick={clearFilterHandler}>
