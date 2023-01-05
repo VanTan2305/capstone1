@@ -33,7 +33,7 @@ const emptyData = {
 
 const ReadingPage = () => {
   let searchLocal = localStorage.getItem('search');
-  // let typeLocal = localStorage.getItem('type');
+  let typeLocal = localStorage.getItem('type');
   let sortLocal = localStorage.getItem('sort');
   let curPageLocal = localStorage.getItem('curPage');
   let userLocal = JSON.parse(localStorage.getItem('user'));
@@ -46,12 +46,20 @@ const ReadingPage = () => {
   //   state.filter.type === 'all' ? '' : `&choice=${state.filter.type}`
   // }&sort=${state.filter.sort}`;
 
+  const filterType = (data) => {
+    console.log(data);
+    return typeLocal === 'all' ? data : 
+    {...data,
+      tests: data.tests.filter((item) => item.type === typeLocal)
+    }
+  };
+
   const getData = async () => {
     dispatch({ type: 'GET_PRODUCTS_BEGIN' });
     try {
       // const response = await axios.get(url);
       // const data = response.data;
-      const data = userLocal.data.role ? fakePracticeData : emptyData;
+      const data = userLocal.data.role ? filterType(fakePracticeData) : emptyData;
       setTimeout(() => {
         dispatch({ type: 'GET_PRODUCTS_SUCCESS', payload: data });
       }, 500);

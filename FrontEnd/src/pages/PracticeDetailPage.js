@@ -73,7 +73,6 @@ const PracticeDetailPage = () => {
       // const data = response.data;
       // console.log(data);
       const fakeData = fakePracticeData.tests.filter((item)=> item._id === params.id)
-      console.log(fakeData);
       dispatch({ type: 'GET_PRODUCTS_SUCCESS', payload: fakeData[0] });
     } catch (error) {
       dispatch({ type: 'GET_PRODUCTS_ERROR' });

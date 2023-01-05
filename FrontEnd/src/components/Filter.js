@@ -18,20 +18,6 @@ const Filter = ({ filter, changeFilter, searchTestHandler, clearFilterHandler, t
           searchTestHandler();
         }}>
         <div>
-          {/* Start Search */}
-          <h3>Search: </h3>
-          <div className="input-container">
-            {/* <input type="text" name="name" placeholder="Type..." value="" /> */}
-            <input
-              type="text"
-              name="search"
-              value={filter.search}
-              onChange={changeFilter}
-              placeholder="Type..."
-            />
-            <input type="submit" name="name" value="Search" />
-          </div>
-          {/* End Search */}
 
           {/* Start category */}
           <h3>Question Type:</h3>

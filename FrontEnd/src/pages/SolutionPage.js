@@ -17,6 +17,7 @@ import { solution_reducer } from '../reducer/solution_reduder';
 import { details_test_url } from '../utils/constants';
 import { Pagination } from 'antd';
 import { Input } from 'antd';
+import { fakePracticeData } from '../data/fakeData';
 
 const { TextArea } = Input;
 
@@ -46,11 +47,12 @@ const SolutionPage = () => {
   const getData = async (url) => {
     dispatch({ type: 'GET_PRODUCTS_BEGIN' });
     try {
-      const response = await axios.get(`${details_test_url}${params.id}`);
-      const data = response.data;
-      console.log(data.testDetail);
+      // const response = await axios.get(`${details_test_url}${params.id}`);
+      // const data = response.data;
+      // console.log(data.testDetail);
+      const fakeData = fakePracticeData.tests.filter((item)=> item._id === params.id)
       setTimeout(() => {
-        dispatch({ type: 'GET_PRODUCTS_SUCCESS', payload: data.testDetail });
+        dispatch({ type: 'GET_PRODUCTS_SUCCESS', payload: fakeData[0] });
       }, 500);
     } catch (error) {
       console.error(error);
