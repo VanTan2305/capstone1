@@ -4,6 +4,7 @@ import { Card, Modal, Space } from 'antd';
 import { useAuthContext } from '../context/auth_context';
 import { useHistory } from 'react-router-dom';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
+import image from '../assets/exam.jpg';
 
 const { Meta } = Card;
 const { confirm } = Modal;
@@ -61,7 +62,7 @@ const ExamPage = () => {
         cover={
           <img
             alt="example"
-            src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/37265/little-boy-study-clipart-xl.png"
+            src={image}
           />
         }>
         <Meta title="VÀO THI THỬ" description="Bạn đã sẵn sàng?" />
@@ -93,7 +94,7 @@ const Wrapper = styled.section`
 
   .ant-card-meta-title {
     font-size: 30px;
-    color: #284664;
+    color: #000000;
   }
 
   .ant-card-meta-description {

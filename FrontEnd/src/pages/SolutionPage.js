@@ -50,7 +50,7 @@ const SolutionPage = () => {
       // const response = await axios.get(`${details_test_url}${params.id}`);
       // const data = response.data;
       // console.log(data.testDetail);
-      const fakeData = fakePracticeData.tests.filter((item)=> item._id === params.id)
+      const fakeData = fakePracticeData.tests.filter((item) => item._id === params.id);
       setTimeout(() => {
         dispatch({ type: 'GET_PRODUCTS_SUCCESS', payload: fakeData[0] });
       }, 500);
@@ -83,12 +83,12 @@ const SolutionPage = () => {
               fontWeight: 'bold',
               fontSize: '26px',
               justifyContent: 'center',
-              background: '#284664',
+              background: '#51a8ff',
               padding: '30px 0',
               borderTopLeftRadius: '8px',
               borderTopRightRadius: '8px'
             }}>
-            <AiOutlineSolution /> SOLUTION
+            <AiOutlineSolution /> Lời giải
           </div>
 
           <div className="container">
@@ -103,9 +103,7 @@ const SolutionPage = () => {
                             <h3
                               style={{ marginTop: '20px', fontSize: '22px', fontWeight: 'bold' }}
                               key={index}>
-                              Choose the correct letter,{' '}
-                              <span style={{ color: '#FF5100' }}>A, B, C</span> or{' '}
-                              <span style={{ color: '#FF5100' }}>D.</span>
+                              Chọn đáp án đúng <span>A, B, C</span> hoặc <span>D.</span>
                             </h3>
                           )}
 
@@ -135,12 +133,12 @@ const SolutionPage = () => {
                                       disable="true"
                                     />
                                     <p className="answer-key">
-                                      Answer: <span>{state.trueAnswers[index]}</span>
+                                      Đáp án đúng: <span>{state.trueAnswers[index]}</span>
                                     </p>
                                     <TextArea
                                       rows={3}
                                       style={{
-                                        width: '70%',
+                                        width: '100%',
                                         background: '#D4DAE0',
                                         marginBottom: '4px',
                                         fontSize: '15px'
@@ -237,7 +235,7 @@ const Wrapper = styled.section`
   h1 {
     font-size: 45px;
     text-align: center;
-    color: #284664;
+    color: #51a8ff;
     margin-top: 5px;
   }
 

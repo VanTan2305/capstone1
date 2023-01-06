@@ -60,22 +60,22 @@ const LoginForm = () => {
           e.preventDefault();
           getData(email, password, 'login');
         }}>
-        <h2>WelCome</h2>
+        <h2>Đăng nhập</h2>
         <input
           type="email"
-          placeholder="Email address"
+          placeholder="Nhập Email"
           aria-describedby="note"
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Nhập mật khẩu"
           onChange={(e) => setPassword(e.target.value)}
         />
         <Link to="/register" className="text">
-          Don't have an account?
+          Chưa có tài khoản? Tạo ngay!
         </Link>
-        <input type="submit" value="Sign In" className="submit" />
+        <input type="submit" value="Đăng nhập ngay" className="submit" />
       </form>
     </div>
   );

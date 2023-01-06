@@ -34,6 +34,46 @@ export const fakePracticeData = {
           updatedAt: '2022-12-12T16:20:08.570Z',
           __v: 0,
           _id: '639754b83f898fb89263c435'
+        },
+        {
+          answer: [
+            'tell you information about the stars.',
+            'tell you where in the world you are.',
+            'find objects in the sky that are not normally visible.',
+            'studying a variety of subjects.'
+          ],
+          content: ['The Celestron SkyScout can 8', null],
+          createdAt: '2022-12-12T16:20:08.570Z',
+          description:
+            'From the keywords The Celestron SkyScout, we use scanning skill to find it. In the paragraph 2, the information given is “For the truly celestially challenged, if you want to view a star or planet but do not have a clue which bit of the heavens to look in, do not despair; the SkyScout’s "locate” feature will guide you to it using illuminated arrows in the viewfinder”. So A must be the right option.\n\nTherefore, the answer for Q27 is A.',
+          explaination:
+            'if you want to view a star or planet but do not have a clue which bit of the heavens to look in, do not despair; the SkyScout’s "locate” feature will guide you to it using',
+          title: 'Rise of the Robots',
+          trueAnswer: 'tell you information about the stars.',
+          type: 'multiplechoice',
+          updatedAt: '2022-12-12T16:20:08.570Z',
+          __v: 0,
+          _id: '639754b83f898fb89263c436'
+        },
+        {
+          answer: [
+            'tell you information about the stars.',
+            'tell you where in the world you are.',
+            'find objects in the sky that are not normally visible.',
+            'studying a variety of subjects.'
+          ],
+          content: ['The Celestron SkyScout can 9', null],
+          createdAt: '2022-12-12T16:20:08.570Z',
+          description:
+            'From the keywords The Celestron SkyScout, we use scanning skill to find it. In the paragraph 2, the information given is “For the truly celestially challenged, if you want to view a star or planet but do not have a clue which bit of the heavens to look in, do not despair; the SkyScout’s "locate” feature will guide you to it using illuminated arrows in the viewfinder”. So A must be the right option.\n\nTherefore, the answer for Q27 is A.',
+          explaination:
+            'if you want to view a star or planet but do not have a clue which bit of the heavens to look in, do not despair; the SkyScout’s "locate” feature will guide you to it using',
+          title: 'Rise of the Robots',
+          trueAnswer: 'tell you information about the stars.',
+          type: 'multiplechoice',
+          updatedAt: '2022-12-12T16:20:08.570Z',
+          __v: 0,
+          _id: '639754b83f898fb89263c439'
         }
       ],
       title: 'Test Word',

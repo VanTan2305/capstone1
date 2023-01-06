@@ -48,10 +48,9 @@ const ReadingPage = () => {
 
   const filterType = (data) => {
     console.log(data);
-    return typeLocal === 'all' ? data : 
-    {...data,
-      tests: data.tests.filter((item) => item.type === typeLocal)
-    }
+    return typeLocal === 'tấtcả'
+      ? data
+      : { ...data, tests: data.tests.filter((item) => item.type === typeLocal) };
   };
 
   const getData = async () => {
@@ -101,7 +100,7 @@ const ReadingPage = () => {
 
   const clearFilterHandler = () => {
     localStorage.setItem('search', '');
-    localStorage.setItem('type', 'all');
+    localStorage.setItem('type', 'tấtcả');
     localStorage.setItem('sort', '-createdAt');
     localStorage.setItem('curPage', '1');
     dispatch({ type: 'CLEAR_FILTER' });
@@ -135,7 +134,9 @@ const ReadingPage = () => {
 
   return (
     <>
-      <h1 className="heading">Practice tests</h1>
+      <h1 className="heading" style={{ color: '#51a8ff', fontSize: '3.5rem', fontWeight: 600 }}>
+        Luyện đề theo kỹ năng
+      </h1>
       <Filter
         filter={state.filter}
         changeFilter={changeFilter}

@@ -10,7 +10,7 @@ const menu = (
         key: '1',
         label: (
           <Link className="blog-link" to="/blog-list">
-            Blog List
+            Xem khóa học
           </Link>
         )
       },
@@ -18,7 +18,7 @@ const menu = (
         key: '2',
         label: (
           <Link className="blog-link" to="/post">
-            Blog Post
+            Bài giảng
           </Link>
         )
       }
@@ -32,52 +32,55 @@ const Header = () => {
   return (
     <header>
       <Link to="/" className="logo">
-        <span style={{ color: '#2EB872' }}>Smart</span>
-        <span>English</span>
+        {/* <span style={{ color: '#51a8ff', fontSize: '2rem' }}>OFFICE INFORMATION </span>
+        <span style={{ color: '#51a8ff', display: 'block', fontSize: '2rem' }}>
+          Practice & Preparation Tests
+        </span> */}
+        <span style={{ color: '#51a8ff'}}>OFFICE INFORMATION Practice & Preparation Tests</span>
       </Link>
 
       <div id="menu" className="fas fa-bars"></div>
 
       <nav className="navbar" style={{ display: 'flex' }}>
-        <Link to="/" style={{ marginTop: '15px' }}>
-          Home
+        <Link to="/" style={{ marginTop: '0' }}>
+          Trang chủ
         </Link>
-        <Link to="/practice" style={{ marginTop: '15px' }}>
-          Practice
+        <Link to="/practice" style={{ marginTop: '0' }}>
+          Luyện đề
         </Link>
         <Dropdown overlay={menu}>
           <div onClick={(e) => e.preventDefault()}>
-            <Space style={{ fontSize: '20px', marginTop: '15px', marginLeft: '13px' }}>Blog</Space>
+            <Space style={{ fontSize: '20px', marginTop: '0', marginLeft: '13px' }}>Khóa học</Space>
           </div>
         </Dropdown>
 
         {role && (
-          <Link to="/exam" style={{ marginTop: '15px' }}>
-            Exam
+          <Link to="/exam" style={{ marginTop: '0' }}>
+            Thi thử
           </Link>
         )}
 
-        {role === 'admin' && (
-          <Link to="/admin/create-question" style={{ marginTop: '15px' }}>
+        {/* {role === 'admin' && (
+          <Link to="/admin/create-question" style={{ marginTop: '0' }}>
             Admin
           </Link>
-        )}
+        )} */}
 
-        {role === 'user' && (
-          <Link to="/profile" style={{ marginTop: '15px' }}>
-            Profile
+        {/* {role === 'user' && (
+          <Link to="/profile" style={{ marginTop: '0' }}>
+            Trang cá nhân
           </Link>
-        )}
+        )} */}
 
         {!role && (
-          <Link to="/login" style={{ color: '#2EB872', marginTop: '15px' }}>
-            Login
+          <Link to="/login" style={{ color: '#51a8ff', marginTop: '0' }}>
+            Đăng nhập
           </Link>
         )}
 
         {role && (
-          <Link to="/" style={{ color: '#2EB872', marginTop: '15px' }} onClick={logoutHandler}>
-            Logout
+          <Link to="/" style={{ color: '#51a8ff', marginTop: '0' }} onClick={logoutHandler}>
+            Đăng xuất
           </Link>
         )}
       </nav>

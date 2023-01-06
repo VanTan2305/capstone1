@@ -39,7 +39,7 @@ const Wrapper = styled.section`
     /* height: 500px; */
     border: 1px solid #ccc;
     /* background: url(https://i.gifer.com/H0dA.gif) center center no-repeat; */
-    background: #32b4c8;
+    background: #51a8ff;
     background-size: cover;
     margin: 30px auto;
     border-radius: 20px;
@@ -109,6 +109,10 @@ const Wrapper = styled.section`
 
   .form-img {
     display: none;
+    width: 100%;
+    img {
+      width: 100%;
+    }
   }
 
   .btn-signup {
@@ -134,10 +138,10 @@ const Wrapper = styled.section`
     grid-template-columns: 1fr 2fr;
 
     .form-img {
-      width: 400px;
+      width: 600px;
       height: 400px;
       display: flex;
-      padding-left: 10rem;
+      padding-left: 5rem;
     }
   }
 `;

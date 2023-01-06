@@ -33,57 +33,35 @@ const Result = ({
   return (
     <Wrapper>
       <div>
-        <h1>Your Exam Performance: </h1>
+        <h1>Kết quả thi </h1>
         <h2>
-          Your Band Score: <span className="bolder">{bandScore}/9</span>
+          Điểm đạt được: <span className="bolder">{percentage / 10}/10</span>
         </h2>
-        <Progress
-          strokeColor={{
-            '0%': '#78909C',
-            '100%': '#78909C'
-          }}
-          strokeWidth={40}
-          percent={percentage}
-          style={{ fontSize: '50px' }}
-          status="active"
-        />
         <div className="result-container">
-          <nav className="left">
-            <div>
-              <h3>{correctAnswer.length}</h3>
-              <p>Total Questions</p>
-            </div>
-            <div>
-              <h3>
-                {totalCorrectAnswer}/{correctAnswer.length}
-              </h3>
-              <p>Marks</p>
-            </div>
+          <nav className="right">
             <div>
               <h3>
                 {exam ? 60 - examMinutes - 1 : minute} : {exam ? 60 - examSeconds : seconds}
               </h3>
-              <p>Time taken</p>
+              <p>Thời gian làm bài</p>
             </div>
-          </nav>
-          <nav className="right">
             <div className="correct">
               <h3>{totalCorrectAnswer}</h3>
-              <p>Correct</p>
+              <p>Trả lời đúng</p>
             </div>
             <div className="incorrect">
               <h3>{totalInCorrectAnswer}</h3>
-              <p>Incorrect</p>
+              <p>Trả lời sai</p>
             </div>
-            <div className="unanswered">
+            {/* <div className="unanswered">
               <h3>{totalUnAnswered}</h3>
-              <p>Unanswered</p>
-            </div>
+              <p>Không trả lời</p>
+            </div> */}
           </nav>
         </div>
 
         <h4>
-          <AiOutlineSolution /> Answer Keys:
+          <AiOutlineSolution /> Đáp án:
         </h4>
         <section className="table-result">
           {correctAnswer.map((ans, i) => (
@@ -91,7 +69,7 @@ const Result = ({
               <div>
                 <span className="answer-number">{i + 1} </span>{' '}
                 <span className="correct-answer">{ans}</span> :{' '}
-                <span className="user-answer">{userAnswer[i] || 'No Answer'} </span>
+                <span className="user-answer">{userAnswer[i] || 'Không trả lời'} </span>
                 <span
                   className={
                     userAnswer[i]
@@ -120,11 +98,11 @@ const Result = ({
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
         {!exam ? (
           <Button type="primary" className="button-reset" onClick={resetHandler}>
-            <BiReset style={{ color: 'white' }} /> Retest
+            <BiReset style={{ color: 'white' }} /> Làm lại
           </Button>
         ) : (
           <Button type="primary" className="button-reset" onClick={resetHandler}>
-            <Link to="/">Back to Home page</Link>
+            <Link to="/">Trở về trang chủ</Link>
           </Button>
         )}
       </div>
@@ -152,6 +130,12 @@ const Wrapper = styled.section`
     line-height: 20px;
   }
 
+  .right {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
   .result-container p {
     font-size: 2rem;
     border-bottom: 4px dotted #dddddd;
@@ -162,19 +146,6 @@ const Wrapper = styled.section`
   .result-container div {
     margin-bottom: 5rem;
     width: 200px;
-  }
-
-  .result-container .right div {
-    border-left: 10px solid red;
-  }
-  .result-container .right .correct {
-    border-left: 10px solid #64e572;
-  }
-  .result-container .right .incorrect {
-    border-left: 10px solid #ff9655;
-  }
-  .result-container .right .unanswered {
-    border-left: 10px solid #fff263;
   }
 
   h3 {
