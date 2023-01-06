@@ -59,7 +59,8 @@ const ReadingPage = () => {
     try {
       // const response = await axios.get(url);
       // const data = response.data;
-      const data = userLocal.data.role ? filterType(fakePracticeData) : emptyData;
+      // const data = userLocal.data.role ? filterType(fakePracticeData) : emptyData;
+      const data = filterType(fakePracticeData);
       setTimeout(() => {
         dispatch({ type: 'GET_PRODUCTS_SUCCESS', payload: data });
       }, 500);

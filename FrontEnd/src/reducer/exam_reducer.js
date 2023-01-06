@@ -41,7 +41,7 @@ const reading_detail_reducer = (state, action) => {
       totalUnAnswered: correctAnswer.flat().length,
       showResult: false,
       questionTypes: [questionArrUnique_1, questionArrUnique_2, questionArrUnique_3],
-      typeTest: action.payload.exams[0].categoryInfo[0].name.toLowerCase(),
+      typeTest: action.payload.exams[0].category.name.toLowerCase(),
       firstRender: false
     };
   }

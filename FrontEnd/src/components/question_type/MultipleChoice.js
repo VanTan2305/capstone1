@@ -12,7 +12,7 @@ const MultipleChoice = ({ id, index, val0, userAnswer, getUserInput, answers, di
     <>
       <div className="question-container" key={id}>
         <h2 style={{ color: '#32B4C8' }}>
-          Question {+index + 1}:{' '}
+          Câu {+index + 1}:{' '}
           {!disable && (
             <button
               style={{ padding: '5px', borderRadius: '8px', cursor: 'pointer', fontSize: '16px' }}

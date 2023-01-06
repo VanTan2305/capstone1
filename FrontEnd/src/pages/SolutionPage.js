@@ -94,42 +94,6 @@ const SolutionPage = () => {
           <div className="container">
             <ReflexContainer orientation="vertical">
               <ReflexElement minSize="20">
-                <div className="article">
-                  <h2 style={{ textAlign: 'center', fontSize: '25px' }}>{state.title}</h2>
-                  <img src={state.image} alt="" />
-
-                  <div style={{ fontSize: '17px', paddingBottom: '20px' }}>
-                    <p style={{ whiteSpace: 'pre-wrap' }}>
-                      <Highlighter
-                        highlightStyle={{ backgroundColor: '#CBDEED' }}
-                        searchWords={state.description}
-                        autoEscape={true}
-                        textToHighlight={state.content[page - 1]}
-                        highlightTag={Highlight}
-                      />
-                    </p>
-                  </div>
-                  <Pagination
-                    simple
-                    current={page}
-                    onChange={(page) => setPage(page)}
-                    total={state.content.length * 10}
-                  />
-                </div>
-              </ReflexElement>
-
-              <ReflexSplitter
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: '14px'
-                }}>
-                <AiOutlineAlignCenter style={{ transform: 'rotate(90deg)' }} />
-              </ReflexSplitter>
-
-              <ReflexElement minSize="20">
                 <div className="exam">
                   <div className="margin-left-read">
                     {state.questionTypes.map((questionType, index) => {

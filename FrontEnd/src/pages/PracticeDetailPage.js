@@ -121,57 +121,9 @@ const PracticeDetailPage = () => {
         <>
           <Timer param={params.id} />
 
-          {/* AUDIO */}
-          {localStage.typeTest === 'reading' || (
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                background: '#284664',
-                marginTop: '-32px',
-                paddingBottom: '14px'
-              }}>
-              <AudioPlayer
-                style={{
-                  borderRadius: '1rem',
-                  width: '50%',
-                  textAlign: 'center',
-                  background: '#94a3b8',
-                  marginTop: '30px',
-                  fontWeight: 'bold'
-                }}
-                autoPlay
-                src={localStage.data.video}
-                onPlay={(e) => console.log('onPlay')}
-                header={`Now playing: ${localStage.data.title}`}
-                footer=""
-              />
-            </div>
-          )}
 
           <div className="container">
             <ReflexContainer orientation="vertical">
-              {/* ARTICLE */}
-              {localStage.typeTest === 'reading' && (
-                <ReflexElement minSize="20">
-                  <div className="article">
-                    <h3 style={{ fontSize: '25px', textAlign: 'center' }}>
-                      {localStage.data.title}
-                    </h3>
-                    <img src={localStage.data.image.name} alt="" />
-                    <p
-                      style={{
-                        fontSize: '17px',
-                        paddingBottom: '20px',
-                        whiteSpace: 'pre-wrap'
-                      }}>
-                      {localStage.data.content}
-                    </p>
-                  </div>
-                </ReflexElement>
-              )}
-
               {/* READING TEST */}
               {localStage.typeTest === 'reading' && (
                 <ReflexSplitter
