@@ -10,10 +10,6 @@ import PracticeDetailPage from './pages/PracticeDetailPage';
 import NotFoundPage from './pages/NotFoundPage';
 import SolutionPage from './pages/SolutionPage';
 import ExamPage from './pages/ExamPage';
-import CreateQuestionPage from './pages/admin-page/CreateQuestionPage/CreateQuestionPage';
-import CreateTestPage from './pages/admin-page/CreateTestPage/CreateTestPage';
-import QuestionList from './pages/admin-page/QuestionListPage/QuestionList';
-import TestListPage from './pages/admin-page/TestListPage/TestListPage';
 import ExamDetailPage from './pages/ExamDetailPage';
 import ProfilePage from './pages/ProfilePage';
 import BlogDetail from './pages/blog/BlogDetail';
@@ -63,18 +59,6 @@ function App() {
           </Route>
           <Route exact path="/profile">
             <ProfilePage />
-          </Route>
-          <Route exact path="/admin/create-question">
-            <CreateQuestionPage />
-          </Route>
-          <Route exact path="/admin/create-test">
-            <CreateTestPage />
-          </Route>
-          <Route exact path="/admin/question-list">
-            <QuestionList />
-          </Route>
-          <Route exact path="/admin/test-list">
-            <TestListPage />
           </Route>
           <Route exact path="*">
             <NotFoundPage />

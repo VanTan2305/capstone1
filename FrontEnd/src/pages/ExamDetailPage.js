@@ -19,7 +19,6 @@ import styled from 'styled-components';
 // import AudioPlayer from 'react-h5-audio-player';
 import { ReflexContainer, ReflexElement, ReflexSplitter } from 'react-reflex';
 import { AiOutlineAlignCenter } from 'react-icons/ai';
-import AudioPlayer from '../components/audio/AudioPlayer';
 import { fakePracticeData } from '../data/fakeData';
 
 import 'react-reflex/styles.css';
