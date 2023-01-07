@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Button } from 'antd';
 
 const Filter = ({ filter, changeFilter, searchTestHandler, clearFilterHandler, type }) => {
-  let a = ['All', 'Word', 'Excel', 'Power Point'];
+  let a = ['Tất cả', 'Word', 'Excel', 'Power Point'];
   // if (type === 'reading') {
   //   a = ['All', 'Multiple Choice', 'Fill Blank', 'TFN'];
   // } else {
@@ -18,9 +18,8 @@ const Filter = ({ filter, changeFilter, searchTestHandler, clearFilterHandler, t
           searchTestHandler();
         }}>
         <div>
-
           {/* Start category */}
-          <h3>Question Type:</h3>
+          <h3>Dạng kỹ năng:</h3>
           <div className="question-type">
             <div className="btns">
               {a.map((val, index) => (
@@ -47,12 +46,12 @@ const Filter = ({ filter, changeFilter, searchTestHandler, clearFilterHandler, t
 
         {/* Start Sort */}
         <div>
-          <h3>Sort:</h3>
+          <h3>Sắp xếp:</h3>
           <select className="select" name="sort" value={filter.sort} onChange={changeFilter}>
-            <option value="-createdAt">Newest</option>
-            <option value="createdAt">Oldest</option>
-            <option value="title">Name A-Z</option>
-            <option value="-title">Name Z-A</option>
+            <option value="-createdAt">Mới nhất</option>
+            <option value="createdAt">Cũ nhất</option>
+            <option value="title">Tên A-Z</option>
+            <option value="-title">Tên Z-A</option>
           </select>
 
           {/* <h3>Test type:</h3>
@@ -67,7 +66,7 @@ const Filter = ({ filter, changeFilter, searchTestHandler, clearFilterHandler, t
         </div>
 
         <Button type="primary" size="large" className="filter-btn" onClick={clearFilterHandler}>
-          Clear Filter
+          Xoá bộ lọc
         </Button>
         {/* End Sort */}
       </form>
@@ -145,9 +144,8 @@ const Wrapper = styled.div`
   }
 
   form {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 10rem;
+    display: flex;
+    column-gap: 5rem;
   }
 
   .select {
@@ -164,14 +162,16 @@ const Wrapper = styled.div`
   }
 
   .filter-btn {
-    background-color: #284664;
-    border: none;
+    background: #ffffff;
+    color: #51a8ff;
+    border: 1px solid #51a8ff;
     margin-top: 5rem;
     transition: 0.2s;
   }
 
   .filter-btn:hover {
-    /* background-color: #8b008b; */
+    background: #51a8ff;
+    color: #ffffff;
   }
 
   .filter-btn:active {

@@ -11,21 +11,21 @@ const MultipleChoice = ({ id, index, val0, userAnswer, getUserInput, answers, di
   return (
     <>
       <div className="question-container" key={id}>
-        <h2 style={{ color: '#32B4C8' }}>
-          Question {+index + 1}:{' '}
+        <h2 style={{ color: '#51a8ff' }}>
+          Câu {+index + 1}:{' '}
           {!disable && (
             <button
               style={{ padding: '5px', borderRadius: '8px', cursor: 'pointer', fontSize: '16px' }}
               onClick={() => setShowInput(!showInput)}>
               <GiStabbedNote />
-              Show Notepad
+              Mở ghi chú
             </button>
           )}
         </h2>
         {showInput && (
           <TextArea
             rows={2}
-            placeholder="Your draft goes here..."
+            placeholder="Nháp tại đây..."
             style={{ width: '100%', background: '#D4DAE0', marginBottom: '4px' }}
           />
         )}

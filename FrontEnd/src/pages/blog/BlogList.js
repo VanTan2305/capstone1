@@ -191,48 +191,51 @@ const BlogList = () => {
     setType(value);
   }
   return (
-    <div>
-      <div className="center">
-        <h1>BLOG LIST</h1>
-      </div>
-      <div style={{ marginBottom: '30px' }} className="center">
-        <div className="search">
-          <input
-            style={{
-              height: '40px',
-              width: '85%',
-              padding: '20px',
-              fontSize: '18px',
-              border: '1px solid #284664',
-              borderRadius: '25px'
-            }}
-            type="text"
-            placeholder="Search Blog"
-            name="search"
-            defaultValue={''}
-            onChange={hanldeInput}
-          />
-          <button
-            style={{
-              height: '100%',
-              width: '82px',
-              borderRadius: '25px',
-              backgroundColor: '#284664',
-              color: '#ffffff',
-              margin: '0 10px'
-            }}
-            onClick={search}>
-            SEARCH
-          </button>
-        </div>
+    // <div>
+    //   <div className="center">
+    //     <h1>BLOG LIST</h1>
+    //   </div>
+    //   <div style={{ marginBottom: '30px' }} className="center">
+    //     <div className="search">
+    //       <input
+    //         style={{
+    //           height: '40px',
+    //           width: '85%',
+    //           padding: '20px',
+    //           fontSize: '18px',
+    //           border: '1px solid #284664',
+    //           borderRadius: '25px'
+    //         }}
+    //         type="text"
+    //         placeholder="Search Blog"
+    //         name="search"
+    //         defaultValue={''}
+    //         onChange={hanldeInput}
+    //       />
+    //       <button
+    //         style={{
+    //           height: '100%',
+    //           width: '82px',
+    //           borderRadius: '25px',
+    //           backgroundColor: '#284664',
+    //           color: '#ffffff',
+    //           margin: '0 10px'
+    //         }}
+    //         onClick={search}>
+    //         SEARCH
+    //       </button>
+    //     </div>
 
-        <select style={{ fontSize: '20px' }} onChange={hanldeType} name="tag">
-          <option value="">All Blog</option>
-          <option value="Grammar">Grammar</option>
-          <option value="Vocabulary">Vocabulary</option>
-        </select>
-      </div>
-      {renderBlog()}
+    //     <select style={{ fontSize: '20px' }} onChange={hanldeType} name="tag">
+    //       <option value="">All Blog</option>
+    //       <option value="Grammar">Grammar</option>
+    //       <option value="Vocabulary">Vocabulary</option>
+    //     </select>
+    //   </div>
+    //   {renderBlog()}
+    // </div>
+    <div>
+      
     </div>
   );
 };

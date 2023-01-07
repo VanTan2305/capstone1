@@ -4,6 +4,7 @@ import { Card, Modal, Space } from 'antd';
 import { useAuthContext } from '../context/auth_context';
 import { useHistory } from 'react-router-dom';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
+import image from '../assets/exam.jpg';
 
 const { Meta } = Card;
 const { confirm } = Modal;
@@ -15,37 +16,6 @@ const ExamPage = () => {
   if (!role) {
     history.push('/');
   }
-
-  const showListeningConfirm = () => {
-    confirm({
-      title: 'Do you want to take THE LISTENING test?',
-      icon: <ExclamationCircleOutlined />,
-      content: '',
-
-      onOk() {
-        history.push('/exam/listening');
-      },
-
-      onCancel() {}
-    });
-  };
-
-  const showListeningConfirmWithAlreadyTest = () => {
-    confirm({
-      title: 'Do you want to continue taking the current LISTENING test?',
-      icon: <ExclamationCircleOutlined />,
-      content: '',
-
-      onOk() {
-        history.push('/exam/listening');
-      },
-
-      onCancel() {
-        localStorage.setItem('reset_exam_detail', '1');
-        history.push('/exam/listening');
-      }
-    });
-  };
 
   const showReadingConfirm = () => {
     confirm({
@@ -63,7 +33,7 @@ const ExamPage = () => {
 
   const showReadingConfirmWithAlreadyTest = () => {
     confirm({
-      title: 'Do you want to continue taking the current READING test?',
+      title: 'Bạn còn Test đang làm dở, có muốn tiếp tục làm Test đó không?',
       icon: <ExclamationCircleOutlined />,
       content: '',
 
@@ -82,21 +52,6 @@ const ExamPage = () => {
     <Wrapper>
       <Card
         onClick={
-          localStorage.getItem('reading_detaillistening')
-            ? showListeningConfirmWithAlreadyTest
-            : showListeningConfirm
-        }
-        style={{
-          width: 400
-        }}
-        cover={
-          <img alt="example" src="https://dungmori.com/cdn/ckeditor/images/bai%20dang%2084/4.png" />
-        }>
-        <Meta title="IELTS" description="Take your LISTENING test" />
-      </Card>
-
-      <Card
-        onClick={
           localStorage.getItem('reading_detailreading')
             ? showReadingConfirmWithAlreadyTest
             : showReadingConfirm
@@ -107,10 +62,10 @@ const ExamPage = () => {
         cover={
           <img
             alt="example"
-            src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/37265/little-boy-study-clipart-xl.png"
+            src={image}
           />
         }>
-        <Meta title="IELTS" description="Take your READING test" />
+        <Meta title="VÀO THI THỬ" description="Bạn đã sẵn sàng?" />
       </Card>
     </Wrapper>
   );
@@ -139,7 +94,7 @@ const Wrapper = styled.section`
 
   .ant-card-meta-title {
     font-size: 30px;
-    color: #284664;
+    color: #000000;
   }
 
   .ant-card-meta-description {

@@ -20,6 +20,7 @@ import styled from 'styled-components';
 import { ReflexContainer, ReflexElement, ReflexSplitter } from 'react-reflex';
 import { AiOutlineAlignCenter } from 'react-icons/ai';
 import AudioPlayer from '../components/audio/AudioPlayer';
+import { fakePracticeData } from '../data/fakeData';
 
 import 'react-reflex/styles.css';
 import 'react-h5-audio-player/lib/styles.css';
@@ -71,14 +72,38 @@ const ExamDetailPage = () => {
     localStage = JSON.parse(localStorage.getItem(`reading_detail${params.id}`));
   }
 
+  const getExams = () => {
+    let exams = [];
+    let practiceLength = fakePracticeData.tests.length;
+    while (exams.length < 3) {
+      let exam = fakePracticeData.tests[Math.floor(Math.random() * practiceLength)];
+      if (!exams.includes(exam)) {
+        exams.push(exam);
+      }
+      console.log('hello', exam);
+    }
+    console.log(exams);
+
+    return exams;
+  };
+
   const getData = async () => {
     dispatch({ type: 'GET_PRODUCTS_BEGIN' });
     try {
-      const response = await axios.get(
-        `${params.id === 'reading' ? reading_exam_url : listening_exam_url}`
-      );
-      const data = response.data;
-      dispatch({ type: 'GET_PRODUCTS_SUCCESS', payload: data });
+      // const response = await axios.get(
+      //   `${params.id === 'reading' ? reading_exam_url : listening_exam_url}`
+      // );
+      // const data = response.data;
+      // console.log(data);
+      const fakeData = {
+        currentPage: 1,
+        examCount: 3,
+        totalPage: 1,
+        exams: {
+          ...getExams()
+        }
+      };
+      dispatch({ type: 'GET_PRODUCTS_SUCCESS', payload: fakeData });
     } catch (error) {
       dispatch({ type: 'GET_PRODUCTS_ERROR' });
     }
@@ -150,79 +175,8 @@ const ExamDetailPage = () => {
         <>
           <CountDownTimer submitWhenTimeout={submitWhenTimeout} param={params.id} />
 
-          {localStage.typeTest === 'reading' || (
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                background: '#284664',
-                marginTop: '-32px',
-                paddingBottom: '14px'
-              }}>
-              {/* <AudioPlayer
-                style={{
-                  borderRadius: '1rem',
-                  width: '50%',
-                  textAlign: 'center',
-                  background: '#94a3b8',
-                  marginTop: '30px',
-                  fontWeight: 'bold'
-                }}
-                autoPlay
-                src={localStage.data.video}
-                onPlay={(e) => console.log('onPlay')}
-                header={`Now playing: ${localStage.data.title}`}
-                footer="All record from: WWW.english-exam.org"
-              /> */}
-              <AudioPlayer
-                tracks={[
-                  {
-                    title: '50',
-                    artist: 'tobylane',
-                    audioSrc:
-                      'https://ieltsonlinetests.oss-ap-southeast-1.aliyuncs.com/Audio/Succeed_in_IELTS/9/Practice%20test%201.mp3',
-                    color: '#ffb77a'
-                  }
-                ]}
-              />
-            </div>
-          )}
-
           <div className="container">
             <ReflexContainer orientation="vertical">
-              {localStage.typeTest === 'reading' && (
-                <ReflexElement minSize="20">
-                  <div className="article">
-                    <h3 style={{ fontSize: '25px', textAlign: 'center', fontWeight: 'bold' }}>
-                      {localStage.data.exams[page - 1].title}
-                    </h3>
-                    <img src={localStage.data.exams[page - 1].image.name} alt="" />
-                    <p
-                      style={{
-                        fontSize: '17px',
-                        paddingBottom: '20px',
-                        whiteSpace: 'pre-wrap'
-                      }}>
-                      {localStage.data.exams[page - 1].content}
-                    </p>
-                  </div>
-                </ReflexElement>
-              )}
-
-              {localStage.typeTest === 'reading' && (
-                <ReflexSplitter
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    width: '14px'
-                  }}>
-                  <AiOutlineAlignCenter style={{ transform: 'rotate(90deg)' }} />
-                </ReflexSplitter>
-              )}
-
               <ReflexElement minSize="20">
                 <div className="exam">
                   <div
@@ -233,17 +187,16 @@ const ExamDetailPage = () => {
                       return (
                         <>
                           {questionType === 'multiplechoice' && (
-                            <h3 style={{ marginTop: '20px', fontSize: '20px', fontWeight: 'bold' }}>
-                              Choose the correct letter,{' '}
-                              <span style={{ color: '#FF5100' }}>A, B, C</span> or{' '}
-                              <span style={{ color: '#FF5100' }}>D.</span>
+                            <h3 style={{ marginTop: '20px', fontSize: '20px' }}>
+                              Chọn đáp án đúng <span style={{ fontWeight: 800 }}>A, B, C</span> hoặc{' '}
+                              <span style={{ fontWeight: 800 }}>D.</span>
                             </h3>
                           )}
 
                           {questionType === 'fillblank' && (
                             <h3 style={{ marginTop: '10px', fontSize: '20px', fontWeight: 'bold' }}>
                               Write{' '}
-                              <span style={{ color: '#FF5100' }}>
+                              <span style={{ fontWeight: 800 }}>
                                 NO MORE THAN THREE WORDS AND/OR A NUMBER{' '}
                               </span>
                               for each answer
@@ -398,19 +351,19 @@ const ExamDetailPage = () => {
                       total={30}
                     />
                     <Popconfirm
-                      title="Are you sure you want to submit?"
+                      title="Bạn chắc chắn muốn nộp bài?"
                       onConfirm={confirm}
-                      okText="Yes"
-                      cancelText="No">
+                      okText="Có"
+                      cancelText="Không">
                       {page === 3 && (
                         <Button
                           type="primary"
                           size="large"
-                          style={{ backgroundColor: '#284664', marginBottom: '10px' }}
+                          style={{ backgroundColor: '#51a8ff', marginBottom: '10px' }}
                           className={
                             localStage.typeTest === 'listening' ? 'margin-left' : 'margin-left-read'
                           }>
-                          Submit
+                          Nộp bài
                         </Button>
                       )}
                     </Popconfirm>
@@ -511,7 +464,7 @@ const Wrapper = styled.section`
     align-items: center;
     width: 100%;
     height: 70px;
-    background-color: #284664;
+    background-color: #51a8ff;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     text-align: center;

@@ -173,69 +173,70 @@ const BlogPost = () => {
   };
 
   return (
-    <section id="form">
-      {/* <form onSubmit={onAddTest} encType="multipart/form-data"> */}
-      <Form onFinish={onAddTest} form={form}>
-        <div className="upload-files-container">
-          <div style={{ width: '100%' }}>
-            <div className="row">
-              <div className="col-sm-5">
-                <div className="blog-form">
-                  <h2>Blog Import Content</h2>
-                  <Form.Item name="title">
-                    <input
-                      type="text"
-                      placeholder="title"
-                      name="title"
-                      defaultValue={''}
-                      onChange={hanldeInput}
-                    />
-                  </Form.Item>
-                  <Form.Item style={{ width: '200px' }} name="tag" initialValue={'Grammar'}>
-                    <Select>
-                      <Option value="Grammar">Grammar</Option>
-                      <Option value="Vocabulary">Vocabulary</Option>
-                    </Select>
-                  </Form.Item>
-                  <Form.Item name="description">
-                    <textarea
-                      placeholder="Describe content here..."
-                      rows={12}
-                      cols={46}
-                      defaultValue={''}
-                      onChange={hanldeInput}
-                      name="description"
-                    />
-                  </Form.Item>
-                </div>
-              </div>
-              <div className="col-sm-2">
-                <div className="center">
-                  <h2 className="or">&amp;</h2>
-                </div>
-              </div>
-              <Form.Item name="image" label="Image" labelAlign="left">
-                <Upload
-                  maxCount={1}
-                  listType="picture"
-                  accept=".png,.jpeg"
-                  beforeUpload={() => {
-                    return false;
-                  }}>
-                  <Button>Select File</Button>
-                </Upload>
-              </Form.Item>
-            </div>
-          </div>
-          <div className="center">
-            <button type="submit" className="upload-button">
-              {' '}
-              Upload{' '}
-            </button>
-          </div>
-        </div>
-      </Form>
-    </section>
+    // <section id="form">
+    //   {/* <form onSubmit={onAddTest} encType="multipart/form-data"> */}
+    //   <Form onFinish={onAddTest} form={form}>
+    //     <div className="upload-files-container">
+    //       <div style={{ width: '100%' }}>
+    //         <div className="row">
+    //           <div className="col-sm-5">
+    //             <div className="blog-form">
+    //               <h2>Blog Import Content</h2>
+    //               <Form.Item name="title">
+    //                 <input
+    //                   type="text"
+    //                   placeholder="title"
+    //                   name="title"
+    //                   defaultValue={''}
+    //                   onChange={hanldeInput}
+    //                 />
+    //               </Form.Item>
+    //               <Form.Item style={{ width: '200px' }} name="tag" initialValue={'Grammar'}>
+    //                 <Select>
+    //                   <Option value="Grammar">Grammar</Option>
+    //                   <Option value="Vocabulary">Vocabulary</Option>
+    //                 </Select>
+    //               </Form.Item>
+    //               <Form.Item name="description">
+    //                 <textarea
+    //                   placeholder="Describe content here..."
+    //                   rows={12}
+    //                   cols={46}
+    //                   defaultValue={''}
+    //                   onChange={hanldeInput}
+    //                   name="description"
+    //                 />
+    //               </Form.Item>
+    //             </div>
+    //           </div>
+    //           <div className="col-sm-2">
+    //             <div className="center">
+    //               <h2 className="or">&amp;</h2>
+    //             </div>
+    //           </div>
+    //           <Form.Item name="image" label="Image" labelAlign="left">
+    //             <Upload
+    //               maxCount={1}
+    //               listType="picture"
+    //               accept=".png,.jpeg"
+    //               beforeUpload={() => {
+    //                 return false;
+    //               }}>
+    //               <Button>Select File</Button>
+    //             </Upload>
+    //           </Form.Item>
+    //         </div>
+    //       </div>
+    //       <div className="center">
+    //         <button type="submit" className="upload-button">
+    //           {' '}
+    //           Upload{' '}
+    //         </button>
+    //       </div>
+    //     </div>
+    //   </Form>
+    // </section>
+    <div></div>
   );
 };
 export default BlogPost;

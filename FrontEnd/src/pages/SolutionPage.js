@@ -50,7 +50,7 @@ const SolutionPage = () => {
       // const response = await axios.get(`${details_test_url}${params.id}`);
       // const data = response.data;
       // console.log(data.testDetail);
-      const fakeData = fakePracticeData.tests.filter((item)=> item._id === params.id)
+      const fakeData = fakePracticeData.tests.filter((item) => item._id === params.id);
       setTimeout(() => {
         dispatch({ type: 'GET_PRODUCTS_SUCCESS', payload: fakeData[0] });
       }, 500);
@@ -83,52 +83,16 @@ const SolutionPage = () => {
               fontWeight: 'bold',
               fontSize: '26px',
               justifyContent: 'center',
-              background: '#284664',
+              background: '#51a8ff',
               padding: '30px 0',
               borderTopLeftRadius: '8px',
               borderTopRightRadius: '8px'
             }}>
-            <AiOutlineSolution /> SOLUTION
+            <AiOutlineSolution /> Lời giải
           </div>
 
           <div className="container">
             <ReflexContainer orientation="vertical">
-              <ReflexElement minSize="20">
-                <div className="article">
-                  <h2 style={{ textAlign: 'center', fontSize: '25px' }}>{state.title}</h2>
-                  <img src={state.image} alt="" />
-
-                  <div style={{ fontSize: '17px', paddingBottom: '20px' }}>
-                    <p style={{ whiteSpace: 'pre-wrap' }}>
-                      <Highlighter
-                        highlightStyle={{ backgroundColor: '#CBDEED' }}
-                        searchWords={state.description}
-                        autoEscape={true}
-                        textToHighlight={state.content[page - 1]}
-                        highlightTag={Highlight}
-                      />
-                    </p>
-                  </div>
-                  <Pagination
-                    simple
-                    current={page}
-                    onChange={(page) => setPage(page)}
-                    total={state.content.length * 10}
-                  />
-                </div>
-              </ReflexElement>
-
-              <ReflexSplitter
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: '14px'
-                }}>
-                <AiOutlineAlignCenter style={{ transform: 'rotate(90deg)' }} />
-              </ReflexSplitter>
-
               <ReflexElement minSize="20">
                 <div className="exam">
                   <div className="margin-left-read">
@@ -139,9 +103,7 @@ const SolutionPage = () => {
                             <h3
                               style={{ marginTop: '20px', fontSize: '22px', fontWeight: 'bold' }}
                               key={index}>
-                              Choose the correct letter,{' '}
-                              <span style={{ color: '#FF5100' }}>A, B, C</span> or{' '}
-                              <span style={{ color: '#FF5100' }}>D.</span>
+                              Chọn đáp án đúng <span>A, B, C</span> hoặc <span>D.</span>
                             </h3>
                           )}
 
@@ -171,12 +133,12 @@ const SolutionPage = () => {
                                       disable="true"
                                     />
                                     <p className="answer-key">
-                                      Answer: <span>{state.trueAnswers[index]}</span>
+                                      Đáp án đúng: <span>{state.trueAnswers[index]}</span>
                                     </p>
                                     <TextArea
                                       rows={3}
                                       style={{
-                                        width: '70%',
+                                        width: '100%',
                                         background: '#D4DAE0',
                                         marginBottom: '4px',
                                         fontSize: '15px'
@@ -273,7 +235,7 @@ const Wrapper = styled.section`
   h1 {
     font-size: 45px;
     text-align: center;
-    color: #284664;
+    color: #51a8ff;
     margin-top: 5px;
   }
 

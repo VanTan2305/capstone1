@@ -91,12 +91,12 @@ const RegisterForm = () => {
           e.preventDefault();
           getData(email, password);
         }}>
-        <h2>Register</h2>
+        <h2>Đăng ký</h2>
         <div className="inputs">
           <input
             ref={inputRef}
             type="email"
-            placeholder="Email address"
+            placeholder="Nhập Email"
             onChange={(e) => setEmail(e.target.value)}
             onFocus={() => setEmailFocus(true)}
             onBlur={() => setEmailFocus(false)}
@@ -104,7 +104,7 @@ const RegisterForm = () => {
           {email && validEmail === false && emailFocus === false && <MessageWarning email />}
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Nhập mật khẩu"
             onChange={(e) => setPassword(e.target.value)}
             onFocus={() => setPasswordFocus(true)}
             onBlur={() => setPasswordFocus(false)}
@@ -114,7 +114,7 @@ const RegisterForm = () => {
           )}
           <input
             type="password"
-            placeholder="Confirm Password"
+            placeholder="Nhập lại mật khẩu"
             onChange={(e) => setConfirmPass(e.target.value)}
             onFocus={() => setConfirmPasswordFocus(true)}
             onBlur={() => setConfirmPasswordFocus(false)}
@@ -126,7 +126,7 @@ const RegisterForm = () => {
             type="submit"
             className="submit"
             disabled={validEmail && validPassword && validConfirmPass ? false : true}>
-            {isLoading ? <Spin style={{ color: 'white' }} /> : 'Sign Up'}
+            {isLoading ? <Spin style={{ color: 'white' }} /> : 'Đăng ký ngay'}
           </button>
         </div>
       </form>

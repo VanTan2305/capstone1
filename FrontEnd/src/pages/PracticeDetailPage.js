@@ -20,7 +20,6 @@ import { AiOutlineAlignCenter } from 'react-icons/ai';
 import { useAuthContext } from '../context/auth_context';
 import { fakePracticeData } from '../data/fakeData';
 
-
 import 'react-reflex/styles.css';
 import 'react-h5-audio-player/lib/styles.css';
 
@@ -72,7 +71,7 @@ const PracticeDetailPage = () => {
       // const response = await axios.get(`${details_test_url}${params.id}`);
       // const data = response.data;
       // console.log(data);
-      const fakeData = fakePracticeData.tests.filter((item)=> item._id === params.id)
+      const fakeData = fakePracticeData.tests.filter((item) => item._id === params.id);
       dispatch({ type: 'GET_PRODUCTS_SUCCESS', payload: fakeData[0] });
     } catch (error) {
       dispatch({ type: 'GET_PRODUCTS_ERROR' });
@@ -121,57 +120,8 @@ const PracticeDetailPage = () => {
         <>
           <Timer param={params.id} />
 
-          {/* AUDIO */}
-          {localStage.typeTest === 'reading' || (
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                background: '#284664',
-                marginTop: '-32px',
-                paddingBottom: '14px'
-              }}>
-              <AudioPlayer
-                style={{
-                  borderRadius: '1rem',
-                  width: '50%',
-                  textAlign: 'center',
-                  background: '#94a3b8',
-                  marginTop: '30px',
-                  fontWeight: 'bold'
-                }}
-                autoPlay
-                src={localStage.data.video}
-                onPlay={(e) => console.log('onPlay')}
-                header={`Now playing: ${localStage.data.title}`}
-                footer=""
-              />
-            </div>
-          )}
-
           <div className="container">
             <ReflexContainer orientation="vertical">
-              {/* ARTICLE */}
-              {localStage.typeTest === 'reading' && (
-                <ReflexElement minSize="20">
-                  <div className="article">
-                    <h3 style={{ fontSize: '25px', textAlign: 'center' }}>
-                      {localStage.data.title}
-                    </h3>
-                    <img src={localStage.data.image.name} alt="" />
-                    <p
-                      style={{
-                        fontSize: '17px',
-                        paddingBottom: '20px',
-                        whiteSpace: 'pre-wrap'
-                      }}>
-                      {localStage.data.content}
-                    </p>
-                  </div>
-                </ReflexElement>
-              )}
-
               {/* READING TEST */}
               {localStage.typeTest === 'reading' && (
                 <ReflexSplitter
@@ -198,9 +148,8 @@ const PracticeDetailPage = () => {
                         <>
                           {questionType === 'multiplechoice' && (
                             <h3 style={{ marginTop: '20px', fontSize: '20px' }}>
-                              Choose the correct letter,{' '}
-                              <span style={{ color: '#FF5100' }}>A, B, C</span> or{' '}
-                              <span style={{ color: '#FF5100' }}>D.</span>
+                              Chọn đáp án đúng <span style={{ fontWeight: 800 }}>A, B, C</span>{' '}
+                              hoặc <span style={{ fontWeight: 800 }}>D.</span>
                             </h3>
                           )}
 
@@ -319,18 +268,18 @@ const PracticeDetailPage = () => {
                   {/* POP UP CONFIRM */}
                   <div style={{ display: 'flex', justifyContent: 'flex-end', marginRight: '45px' }}>
                     <Popconfirm
-                      title="Are you sure you want to submit?"
+                      title="Bạn chắc chắn muốn nộp bài?"
                       onConfirm={confirm}
-                      okText="Yes"
-                      cancelText="No">
+                      okText="Có"
+                      cancelText="Không">
                       <Button
                         type="primary"
                         size="large"
-                        style={{ backgroundColor: '#284664', marginBottom: '10px' }}
+                        style={{ backgroundColor: '#51a8ff', marginBottom: '10px' }}
                         className={
                           localStage.typeTest === 'listening' ? 'margin-left' : 'margin-left-read'
                         }>
-                        Submit
+                        Nộp bài
                       </Button>
                     </Popconfirm>
                   </div>
@@ -429,7 +378,7 @@ const Wrapper = styled.section`
     align-items: center;
     width: 100%;
     height: 70px;
-    background-color: #284664;
+    background-color: #51a8ff;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     text-align: center;

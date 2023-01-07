@@ -27,15 +27,13 @@ export default RegisterPage;
 
 const Wrapper = styled.section`
   display: grid;
-  margin-left: 15rem;
   height: 85vh;
 
   .register-container {
     width: 320px;
     /* height: 500px; */
     border: 1px solid #ccc;
-    background: #6495ed;
-    background: #32b4c8;
+    background: #51a8ff;
     background-size: cover;
     margin: 30px auto;
     border-radius: 20px;
@@ -160,7 +158,8 @@ const Wrapper = styled.section`
       height: 400px;
       display: flex;
       justify-content: center;
-      padding-left: 10rem;
+      right: 0;
+      margin-left: 15rem;
     }
   }
 `;
