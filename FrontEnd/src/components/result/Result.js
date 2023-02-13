@@ -74,14 +74,14 @@ const Result = ({
                   className={
                     userAnswer[i]
                       ? ans.toLowerCase() ===
-                        [...new Set(userAnswer[i].trim().split(' '))].join(' ').toLocaleLowerCase()
+                      userAnswer[i].toLocaleLowerCase()
                         ? 'answer-true'
                         : 'answer-false'
                       : 'answer-false'
                   }>
                   {userAnswer[i] ? (
                     ans.toLowerCase() ===
-                    [...new Set(userAnswer[i].trim().split(' '))].join(' ').toLocaleLowerCase() ? (
+                    userAnswer[i].toLocaleLowerCase() ? (
                       <AiOutlineCheck />
                     ) : (
                       <AiOutlineClose />

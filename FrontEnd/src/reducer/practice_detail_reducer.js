@@ -110,13 +110,13 @@ const reading_detail_reducer = (state, action) => {
       if (tempState.userAnswer[i]) {
         if (
           tempState.correctAnswer[i].toLowerCase() ===
-          [...new Set(tempState.userAnswer[i].trim().split(' '))].join(' ').toLocaleLowerCase()
+          tempState.userAnswer[i].toLocaleLowerCase()
         ) {
           tempState.totalCorrectAnswer += 1;
         }
         if (
           tempState.correctAnswer[i].toLowerCase() !==
-            [...new Set(tempState.userAnswer[i].trim().split(' '))].join(' ').toLocaleLowerCase() &&
+            tempState.userAnswer[i].toLocaleLowerCase() &&
           tempState.userAnswer[i] !== undefined
         ) {
           tempState.totalInCorrectAnswer++;
